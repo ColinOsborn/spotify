@@ -1,7 +1,11 @@
 <div class="container">
   <div class="jumbotron">
-    <img src="http://vignette1.wikia.nocookie.net/logopedia/images/f/f8/Spotify2015.png/revision/latest?cb=20150401181504" class="text-center" id="img" />
-    <h1 class='text-center'>Spotify API-curious</h1>
-    <%= render partial: 'shared/login' %>
+    <h2>API-curious</h2>
+    <% if current_user %>
+      Hello, <%= current_user.username %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in with Spotify", spotify_login_path %>
+    <% end %>
   </div>
 </div>
