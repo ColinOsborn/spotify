@@ -4,8 +4,14 @@ class Artist < OpenStruct
   def initialize(new_artist_hash)
     @name = new_artist_hash["name"]
     @id = new_artist_hash["id"]
+    # @url = new_artist_hash["url"]
     @created_at = new_artist_hash["created_at"]
     @updated_at = new_artist_hash["updated_at"]
+  end
+
+  def self.all
+    artists_hash = ArtistService.new.get_artists
+    Artist.new(artist_hash)
   end
 
   def self.find(id)
