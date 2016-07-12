@@ -1,11 +1,5 @@
 <div class="container">
   <div class="jumbotron">
-    <h2>API-curious</h2>
-    <% if current_user %>
-      Hello, <%= current_user.username %>
-      <%= link_to "Logout", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in with Spotify", spotify_login_path %>
-    <% end %>
+      <h2 class="text-center">API-curious</h2>
   </div>
 </div>
