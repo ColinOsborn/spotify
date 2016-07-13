@@ -7,8 +7,9 @@ class ArtistService
 
   def get_artist(id)
     response = @connection.get("/v1/artists/#{id}")
-    JSON.parse(response.body)
+    artist_hash = JSON.parse(response.body)
+    Artist.new(artist_hash)
   end
-
-
 end
+
+# maybe we should use webmock or VCR to test this...
