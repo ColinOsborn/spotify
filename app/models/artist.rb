@@ -19,4 +19,8 @@ class Artist < OpenStruct
     Artist.new(artist_hash)
   end
 
+  def self.search(search)
+    
+  end
+
 end
