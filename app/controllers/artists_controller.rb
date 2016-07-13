@@ -1,11 +1,13 @@
 class ArtistsController < ApplicationController
+  def show
+    @artist = @artist_service.get_artist(params[:id])
+  end
 
   def index
-    @artists = Artist.all
+    @artists = @artist_service.all
   end
 
-  def show
-    @artist = Artist.find(params[:id])
+  def artist_service=(artist_service = ArtistService.new)
+    @artist_service = artist_service
   end
-
 end
