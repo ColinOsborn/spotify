@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faraday'
 gem 'omniauth-spotify'
 gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'sunspot_rails'
 # gem 'omniauth'
 
 gem 'rails_12factor', group: :production

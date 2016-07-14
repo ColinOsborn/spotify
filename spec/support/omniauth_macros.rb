@@ -2,7 +2,7 @@ module OmniauthMacros
   def mock_auth_hash
     # The mock_auth configuration allows you to set per-provider (or default)
     # authentication hashes to return during integration testing.
-    OmniAuth.config.mock_auth[:spotify] = {
+    OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new({
       'provider' => 'spotify',
       'uid' => '123545',
       'user_info' => {
@@ -13,6 +13,6 @@ module OmniauthMacros
         'token' => 'mock_token',
         'secret' => 'mock_secret'
       }
-    }
+    })
   end
 end
