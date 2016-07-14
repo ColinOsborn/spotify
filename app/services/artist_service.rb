@@ -16,5 +16,10 @@ class ArtistService
     JSON.parse(response.body)
   end
 
+  def search_artist(name)
+    url_name = name.gsub!(" ", "%20")
+    response = @connection.get("/v1/search?q=#{url_name}&type=artist")
+    JSON.parse(response.body)
+  end
 
 end
