@@ -8,6 +8,6 @@ RSpec.feature "user logs in with spotify" do
   expect(response).to have_http_status(:success)
 
   click_link "Sign in with Spotify"
-  expect(current_path).to eq("")
+  expect(current_path).to eq("/")
   end
 end

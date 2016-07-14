@@ -1,25 +1,29 @@
-<!-- <div class="pull-right">
-  <% if current_user %>
-  <h4>Hello, <%= current_user.uid %>!</h4>
-  <%= link_to "Logout", logout_path, method: :delete %>
-    <% else %>
-  <%= link_to "Sign in with Spotify", spotify_login_path %>
-    <% end %>
-</div> -->
-
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
         <img class="img" alt="Brand" src="http://vignette1.wikia.nocookie.net/logopedia/images/f/f8/Spotify2015.png/revision/latest?cb=20150401181504">
       </a>
-        <div class="pull-right align-right">
-          <% if current_user %>
-            <h5>Hello, <%= current_user.uid %>! - <%= link_to "Logout", logout_path, method: :delete %></h5>
-          <% else %>
-            <%= link_to "Sign in with Spotify", spotify_login_path %>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <%= form_tag(artists_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Artists", class: "form-control text-center" %>
+          <%= submit_tag "Search", class:"btn btn-success" %>
           <% end %>
+          <% if @artist.present? %>
+            <%= render @artist %>
+          <% end %>
+        </div>
+      </form>
+      <a role="separator" class="divider"></a>
+      <div class="align-right pull-right">
+        <form class="navbar-form navbar-right pull-right">
+          <% if current_user %>
+          <h5>Hello, <%= current_user.uid %>! - <%= link_to "Logout", logout_path, method: :delete %></h5>
+          <% else %>
+          <%= link_to "Sign in with Spotify", spotify_login_path %>
+          <% end %>
+        </form>
       </div>
     </div>
   </div>
